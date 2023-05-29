@@ -49,7 +49,3 @@
 ## 贡献者
 
 - @PearNoDec
-
-## 许可证
-
-本项目采用 MIT 许可证，详情请见 [LICENSE](./LICENSE) 文件。
