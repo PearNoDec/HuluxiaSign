@@ -45,7 +45,7 @@
 
 ## 运行结果
 
-![Image text](Success.png)
+![Image text](SuccessSign.png)
 
 ## 贡献者
 
