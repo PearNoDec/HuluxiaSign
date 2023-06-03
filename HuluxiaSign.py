@@ -96,7 +96,21 @@ def process_run(loginkey):
     print("——"*20+f"\n{text}\n"+"——"*20)
         
 if __name__ == "__main__":
-    account = "" # 这里填手机号
-    password = "" # 这里填明文密码
-    loginkey = get_login_sign()
-    process_run(loginkey)
+    print('''      _____                  _   _       
+     |  __ \                | \ | |      
+     | |__) |__  __ _ _ __  |  \| | ___  
+     |  ___/ _ \/ _` | '__| | . ` |/ _ \ 
+     | |  |  __/ (_| | |    | |\  | (_) |
+     |_|   \___|\__,_|_|    |_| \_|\___/ 
+     
+工具简介：一款自动签到葫芦侠活动板块的开源Python脚本''')
+    choose = int(input("请选择签到模式(1-CK 2-登陆)："))
+    if choose == 1:
+        loginkey = str(input("请输入抓取的Key："))
+        print("——"*20)
+        process_run(loginkey)
+    elif choose == 2:
+        account = "" # 这里填手机号
+        password = "" # 这里填明文密码
+        loginkey = get_login_sign()
+        process_run(loginkey)
