@@ -104,7 +104,7 @@ if __name__ == "__main__":
      |_|   \___|\__,_|_|    |_| \_|\___/ 
      
 工具简介：一款自动签到葫芦侠活动板块的开源Python脚本''')
-    choose = int(input("请选择签到模式(1-CK 2-登陆)："))
+    choose = int(input("请选择程序模式(1-Key 2-登陆)："))
     if choose == 1:
         loginkey = str(input("请输入抓取的Key："))
         print("——"*20)
