@@ -106,7 +106,7 @@ if __name__ == "__main__":
 工具简介：一款自动签到葫芦侠活动板块的开源Python脚本''')
     choose = int(input("请选择程序模式(1-Key 2-登陆)：2"))
     if choose == 1:
-        loginkey = str(input("请输入抓取的Key："))
+        loginkey = str(input("请输入抓取的Key：D1FB13F0D768862FEBCDF1D54A73658194E730CE992278EE03CAC7C3331C392E92117A442C0A608805E30797ABD36374ACAF887D0D6B6783"))
         print("——"*20)
         process_run(loginkey)
     elif choose == 2:
