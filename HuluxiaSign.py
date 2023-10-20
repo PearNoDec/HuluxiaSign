@@ -38,38 +38,6 @@ def send_sign_post(url, post_data):
     else:
         return False
 
-def get_login_sign():
-    password_encode = hashlib.md5(password.encode()).hexdigest()
-    encode_text = f"account{account}device_code[d]7f659db3-9ffb-41ec-80c3-fbf0db5691a9password{password_encode}voice_codefa1c28a5b62e79c3e63d9030b6142e4b"
-    account_sign = hashlib.md5(encode_text.encode()).hexdigest()
-    account_upper = account_sign.upper()
-    url= "http://floor.huluxia.com/account/login/ANDROID/4.1.8?platform=2&gkey=000000&app_version=4.2.1.7&versioncode=371&market_id=tool_huluxia&_key=&device_code=%5Bd%5D7f659db3-9ffb-41ec-80c3-fbf0db5691a9&phone_brand_type=UN"
-    data = {
-        "account" : str(account),
-        "login_type" : "2",
-        "password" : str(password_encode),
-        "sign" : str(account_upper)
-    }
-    headers = {
-        "Host": "floor.huluxia.com",
-        "Content-Type": "application/x-www-form-urlencoded",
-        "User-Agent": "okhttp/3.8.1"
-    }
-    response_login = requests.post(url,headers=headers,data=data)
-    if response_login.status_code == 200:
-        login_json = response_login.json()
-        login_status = login_json['status']
-        if login_status == 1:
-            login_username = login_json['user']['nick']
-            login_uid = login_json['user']['userID']
-            login_key = login_json['_key']
-            print("——"*20+f"\n当前状态:登陆成功\n用户ID:{login_uid}\n用户名:{login_username}\n"+"——"*20)
-            return login_key
-        else:
-            return False
-    else:
-        return False
-
 def process_run(loginkey):
     url = "http://floor.huluxia.com/category/list/ANDROID/2.0"
     getiddata = get_categoryid_list(url)
@@ -104,13 +72,6 @@ if __name__ == "__main__":
      |_|   \___|\__,_|_|    |_| \_|\___/ 
      
 工具简介：一款自动签到葫芦侠活动板块的开源Python脚本''')
-    choose = int(input("请选择程序模式(1-Key 2-登陆)："))
-    if choose == 1:
-        loginkey = str(input("请输入抓取的Key："))
-        print("——"*20)
-        process_run(loginkey)
-    elif choose == 2:
-        account = "" # 这里填手机号
-        password = "" # 这里填明文密码
-        loginkey = get_login_sign()
-        process_run(loginkey)
+    loginkey = "" #这里填入自己的LoginKey
+    print("——"*20)
+    process_run(loginkey)
